@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Resume</title>
+	<link rel="shortcut icon" href="./images/1.jpg"/>
+	<link rel="stylesheet" type="text/css" href="gen.css">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+	<script src="./gen.js"></script>
+	<style>
+	#source-md {
+		display: none;
+	}
+	</style>
+		<script type="text/javascript">
+		var showResumeContentOnLoad = function () {
+			window.theDoms = document.body.getElementsByClassName('lazy-display-animation');
+			window.theDelay = 50;
+			for (var i = 0; i < window.theDoms.length; i++) {
+				setTimeout((function(ii){
+					var _fu = function () {
+						window.theDoms[ii].classList.add('played');
+					};
+					return _fu;
+				})(i), window.theDelay*i+100);
+			};
+			var anchors = document.body.getElementsByTagName('a');
+			for (var i = anchors.length - 1; i >= 0; i--) {
+				anchors[i].target = '_blank';
+			};
+			var asyncImages = document.body.querySelectorAll('img[data-async-src]');
+			for (var i = asyncImages.length - 1; i >= 0; i--) {
+				asyncImages[i].src = asyncImages[i].getAttribute('data-async-src');
+			};
+		};
+		window.addEventListener('load', showResumeContentOnLoad, false);
+	</script>
+</head>
+<body>
+	<div class="download-button-container">
+		<!-- <a class="download-button lazy-display-animation" href="/resume/joyneop_resume.pdf">Download PDF</a> -->
+	</div>
+	<div class="page-start"></div>
+
+	<div id="source-header">
+		@ curiosity-hyf
+
+		@@ curiooosity.h@gmail.com
+        
+	</div>
+	<div id="source-main">
+		# Education Experience
+        
+        ## college {2014.09 - 2018.07}
+
+        # Other Experience
+        
+        ## Java {2016.03 - now}
+
+		# Ability
+
+		## Android
+		View
+
+	</div>
+	<div class="grand cont" id="cont">
+		<img class="avatar" data-async-src="./images/1.jpg">
+		<div id="header" class="lazy-display-animation"></div>
+		<div class="main lazy-display-animation" id="main"></div>
+	</div>
+	<script type="text/javascript">
+	var source_header = document.getElementById('source-header').innerHTML;
+	
+	resumeMarkdownParser('header', source_header);
+
+	var source_main = document.getElementById('source-main').innerHTML;
+	
+	resumeMarkdownParser('main', source_main);
+	
+
+	document.getElementById('source-header').remove()
+	document.getElementById('source-main').remove()
+	</script>
+
+</body>
+</html>
